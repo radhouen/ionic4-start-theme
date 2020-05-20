@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
-
+import {PoductsService} from '../../services/poducts.service';
 @Component({
   selector: 'app-about',
   templateUrl: './about.page.html',
@@ -35,7 +35,27 @@ export class AboutPage implements OnInit {
     value: "FUT (180 kg)"
   }];
 
-  products = ["ENI I-SINT 5W30", "ENI I-SINT 5W40", "ENI I-SINT 10W40", "TANIX SUPER 1100", "TANIX SUPER 700", "TANIX SUPER 500"]
+  products = [
+    {
+      name: "ep1",
+      value: "ENI I-SINT 5W30"
+    }
+    , {
+      name: "ep2",
+      value: "ENI I-SINT 5W40"
+    }, {
+      name: "ep3",
+      value: "ENI I-SINT 10W40"
+    }, {
+      name: "ep4",
+      value: "TANIX SUPER 1100"
+    }, {
+      name: "ep5",
+      value: "TANIX SUPER 700"
+    }, {
+      name: "ep6",
+      value: "TANIX SUPER 500"
+    }]
 
   constructor(
     public navCtrl: NavController,
@@ -43,25 +63,48 @@ export class AboutPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
+    public pqservice:PoductsService,
     private formBuilder: FormBuilder) {
   }
   ngOnInit() {
 
     this.slideOneForm = this.formBuilder.group({
-      'email': [null, Validators.compose([
+      'ep1': [null, Validators.compose([
         Validators.required
       ])],
-      'password': [null, Validators.compose([
+      'ep2': [null, Validators.compose([
+        Validators.required
+      ])],
+      'ep3': [null, Validators.compose([
+        Validators.required
+      ])],
+      'ep4': [null, Validators.compose([
+        Validators.required
+      ])],
+      'ep5': [null, Validators.compose([
+        Validators.required
+      ])],
+      'ep6': [null, Validators.compose([
         Validators.required
       ])]
     });
   }
   logForm() {
-    console.log(this.slideOneForm.value)
+
   }
 
   nextStep() {
-    this.navCtrl.navigateRoot('/diesel');
+    let formValid = false;
+    console.log(this.slideOneForm.value);
+    console.log(this.slideOneForm.valid);
+    if (this.slideOneForm.valid) {
+      this.pqservice.essenceQuantities= this.slideOneForm.value;
+      console.log(this.pqservice.essenceQuantities);
+      this.navCtrl.navigateRoot('/diesel');
+    }
+  }
+  createformBuilder(index: number) {
+    return "ep" + index.toString(2)
   }
 
 }

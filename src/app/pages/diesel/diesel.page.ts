@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {PoductsService} from '../../services/poducts.service';
 
 @Component({
   selector: 'app-diesel',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DieselPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    public pqservice:PoductsService,
+  ) { }
 
   ngOnInit() {
+    console.log('value from diesel page');
+    console.log(this.pqservice.essenceQuantities);
+
   }
 
 }

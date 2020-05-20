@@ -16,14 +16,14 @@
           <strong>Huiles moteurs a Essence </strong>
         </ion-text>
       </h3>
-      <div *ngFor="let product of products">
+      <div *ngFor="let product of products; let i=index">
         <ion-item>
           <ion-label>
-            {{product}}
+            {{product.value}}
           </ion-label>
-          <ion-select multiple="true" cancelText="Nah" okText="Okay!">
+          <ion-select multiple="false" cancelText="Cancel" okText="Confirm" formControlName="{{product.name}}">
             <div *ngFor="let quant of quantities">
-              <ion-select-option value="bacon">{{quant.value}}</ion-select-option>
+              <ion-select-option value="{{quant.name}}">{{quant.value}}</ion-select-option>
             </div>
           </ion-select>
         </ion-item>
@@ -31,8 +31,8 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-button (click)="nextStep()" type expand="block" routerLink="/essence" routerDirection="root">
+  <button type="submit" (click)="nextStep()" type expand="block">
    Next
- </ion-button>
+ </button>
  </form>
 </ion-content>
