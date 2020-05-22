@@ -3,36 +3,37 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>About</ion-title>
+    <ion-title>Huiles moteurs a Essence</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
- <form [formGroup]="slideOneForm">
-  <ion-card class="bg-white" no-margin>
-    <ion-card-content>
-      <h3 margin-bottom>
-        <ion-text color="primary">
-          <strong>Huiles moteurs a Essence </strong>
-        </ion-text>
-      </h3>
-      <div *ngFor="let product of products; let i=index">
-        <ion-item>
-          <ion-label>
-            {{product.value}}
-          </ion-label>
-          <ion-select multiple="false" cancelText="Cancel" okText="Confirm" formControlName="{{product.name}}">
-            <div *ngFor="let quant of quantities">
-              <ion-select-option value="{{quant.name}}">{{quant.value}}</ion-select-option>
-            </div>
-          </ion-select>
-        </ion-item>
-      </div>
-    </ion-card-content>
-  </ion-card>
+  <form [formGroup]="slideOneForm">
+    <ion-card class="bg-white" no-margin>
+      <ion-card-content>
+        <h3 margin-bottom>
+          <ion-text color="primary">
+            <strong>Huiles moteurs a Essence </strong>
+          </ion-text>
+        </h3>
+        <div *ngFor="let product of products; let i=index">
+            <ion-row>
+            <ion-col size="12"> <p class="product-reference">
+              {{product.value}}
+            </p></ion-col>
+              <ion-col *ngIf="product.open"  size="12">
+              <ion-item *ngFor="let quant of quantities">
+                <ion-label position="floating">{{quant.value}}</ion-label>
+                <ion-input type="number" value="0" placeholder="choose the quantity"></ion-input>
+              </ion-item>
+              </ion-col>
+            </ion-row>
+        </div>
+      </ion-card-content>
+    </ion-card>
 
-  <button type="submit" (click)="nextStep()" type expand="block">
+    <ion-button type="submit" (click)="nextStep()" type expand="block">
    Next
- </button>
- </form>
+ </ion-button>
+  </form>
 </ion-content>

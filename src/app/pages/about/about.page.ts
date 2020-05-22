@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
 import {PoductsService} from '../../services/poducts.service';
+import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-about',
   templateUrl: './about.page.html',
@@ -38,27 +39,34 @@ export class AboutPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
+      value: "ENI I-SINT 5W30",
+      open: true
     }
     , {
       name: "ep2",
-      value: "ENI I-SINT 5W40"
+      value: "ENI I-SINT 5W40",
+      open: false
     }, {
       name: "ep3",
-      value: "ENI I-SINT 10W40"
+      value: "ENI I-SINT 10W40",
+      open: false
     }, {
       name: "ep4",
-      value: "TANIX SUPER 1100"
+      value: "TANIX SUPER 1100",
+      open: false
     }, {
       name: "ep5",
-      value: "TANIX SUPER 700"
+      value: "TANIX SUPER 700",
+      open: false
     }, {
       name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "TANIX SUPER 500",
+      open: false
     }]
 
   constructor(
     public navCtrl: NavController,
+    public modalController: ModalController,
     public menuCtrl: MenuController,
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
