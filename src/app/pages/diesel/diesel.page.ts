@@ -41,23 +41,26 @@ export class DieselPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
+      value: "ENI I-SINT TD 10W40"
     }
     , {
       name: "ep2",
-      value: "ENI I-SINT 5W40"
+      value: "TANIX 4WD SAE 15W50"
     }, {
       name: "ep3",
-      value: "ENI I-SINT 10W40"
+      value: "TANIX DIESEL 1100"
     }, {
       name: "ep4",
-      value: "TANIX SUPER 1100"
+      value: "TANIX DIESEL TURBO 900"
     }, {
       name: "ep5",
-      value: "TANIX SUPER 700"
+      value: "TANIX DIESEL 700"
     }, {
       name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "TANIX DIESEL 500 SAE 40"
+    }, {
+      name: "ep7",
+      value: "TANIX DIESEL 300 SHD +40"
     }];
   public command = [];
 

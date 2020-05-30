@@ -41,23 +41,11 @@ export class GraissesPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
+      value: "GRAISSE MULTISERVICE"
     }
     , {
       name: "ep2",
-      value: "ENI I-SINT 5W40"
-    }, {
-      name: "ep3",
-      value: "ENI I-SINT 10W40"
-    }, {
-      name: "ep4",
-      value: "TANIX SUPER 1100"
-    }, {
-      name: "ep5",
-      value: "TANIX SUPER 700"
-    }, {
-      name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "GRAISSE SUPER STABIL EP/2"
     }];
 
     public command = [];
@@ -74,26 +62,6 @@ export class GraissesPage implements OnInit {
   ngOnInit() {
     console.log('value from graisse page');
     console.log(this.pqservice.hydrauliquesQuantities);
-    this.slideOneForm = this.formBuilder.group({
-      'ep1': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep2': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep3': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep4': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep5': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep6': [null, Validators.compose([
-        Validators.required
-      ])]
-    });
   }
 
   logForm() {

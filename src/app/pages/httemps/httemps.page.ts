@@ -40,23 +40,7 @@ export class HttempsPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
-    }
-    , {
-      name: "ep2",
-      value: "ENI I-SINT 5W40"
-    }, {
-      name: "ep3",
-      value: "ENI I-SINT 10W40"
-    }, {
-      name: "ep4",
-      value: "TANIX SUPER 1100"
-    }, {
-      name: "ep5",
-      value: "TANIX SUPER 700"
-    }, {
-      name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "TANIX 2 TEMPS MOTO"
     }];
 
     public command = [];

@@ -40,23 +40,11 @@ export class MarinsPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
+      value: "CALDIUM 140 S SAE 40"
     }
     , {
       name: "ep2",
-      value: "ENI I-SINT 5W40"
-    }, {
-      name: "ep3",
-      value: "ENI I-SINT 10W40"
-    }, {
-      name: "ep4",
-      value: "TANIX SUPER 1100"
-    }, {
-      name: "ep5",
-      value: "TANIX SUPER 700"
-    }, {
-      name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "SIGMA TURBO 15W40"
     }];
 
     public command = [];

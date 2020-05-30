@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
-import {PoductsService} from '../../services/poducts.service';
+import { PoductsService } from '../../services/poducts.service';
 
 @Component({
   selector: 'app-hydrauliques',
@@ -41,26 +41,17 @@ export class HydrauliquesPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
+      value: "HYDRAX 32"
     }
     , {
       name: "ep2",
-      value: "ENI I-SINT 5W40"
+      value: "HYDRAX 46"
     }, {
       name: "ep3",
-      value: "ENI I-SINT 10W40"
-    }, {
-      name: "ep4",
-      value: "TANIX SUPER 1100"
-    }, {
-      name: "ep5",
-      value: "TANIX SUPER 700"
-    }, {
-      name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "HYDRAX 68"
     }];
 
-    public command = [];
+  public command = [];
 
   constructor(
     public navCtrl: NavController,
@@ -68,32 +59,12 @@ export class HydrauliquesPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public pqservice:PoductsService,
+    public pqservice: PoductsService,
     private formBuilder: FormBuilder) {
   }
   ngOnInit() {
     console.log('value from hydraulique page');
     console.log(this.pqservice.caloporteursQuantities);
-    this.slideOneForm = this.formBuilder.group({
-      'ep1': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep2': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep3': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep4': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep5': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep6': [null, Validators.compose([
-        Validators.required
-      ])]
-    });
   }
 
   logForm() {

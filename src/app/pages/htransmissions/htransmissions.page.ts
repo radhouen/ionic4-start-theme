@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
-import {PoductsService} from '../../services/poducts.service';
+import { PoductsService } from '../../services/poducts.service';
 
 @Component({
   selector: 'app-htransmissions',
@@ -10,8 +10,6 @@ import {PoductsService} from '../../services/poducts.service';
 })
 export class HtransmissionsPage implements OnInit {
 
-
-  public slideOneForm: FormGroup;
   quantities = [{
     name: "c12",
     value: "Bidon (1L) C12"
@@ -41,26 +39,32 @@ export class HtransmissionsPage implements OnInit {
   products = [
     {
       name: "ep1",
-      value: "ENI I-SINT 5W30"
+      value: "ENI ROTRA ATF IID"
     }
     , {
       name: "ep2",
-      value: "ENI I-SINT 5W40"
+      value: "ENI ROTRA ATF III"
     }, {
       name: "ep3",
-      value: "ENI I-SINT 10W40"
+      value: "VITEX SPECIAL EP 85W90"
     }, {
       name: "ep4",
-      value: "TANIX SUPER 1100"
+      value: "VITEX SPECIAL MP 80W90"
     }, {
       name: "ep5",
-      value: "TANIX SUPER 700"
+      value: "VITEX SPECIAL MP 85W90"
     }, {
       name: "ep6",
-      value: "TANIX SUPER 500"
+      value: "VITEX SPECIAL MP 85W140"
+    }, {
+      name: "ep7",
+      value: "ENI ROTRA ATF 75W90"
+    }, {
+      name: "ep8",
+      value: "ENI ROTRA ATF 75W80"
     }];
 
-    public command = [];
+  public command = [];
 
   constructor(
     public navCtrl: NavController,
@@ -68,32 +72,13 @@ export class HtransmissionsPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public pqservice:PoductsService,
+    public pqservice: PoductsService,
     private formBuilder: FormBuilder) {
   }
   ngOnInit() {
     console.log('value from htransmission page');
     console.log(this.pqservice.hmgazQuantities);
-    this.slideOneForm = this.formBuilder.group({
-      'ep1': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep2': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep3': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep4': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep5': [null, Validators.compose([
-        Validators.required
-      ])],
-      'ep6': [null, Validators.compose([
-        Validators.required
-      ])]
-    });
+
   }
 
   logForm() {
