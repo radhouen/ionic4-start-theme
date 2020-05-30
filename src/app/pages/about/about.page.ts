@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, MenuController, ToastController, AlertController, LoadingController } from '@ionic/angular';
-import {PoductsService} from '../../services/poducts.service';
+import { PoductsService } from '../../services/poducts.service';
 import { ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-about',
@@ -45,24 +45,25 @@ export class AboutPage implements OnInit {
     , {
       name: "ep2",
       value: "ENI I-SINT 5W40",
-      open: false
+      open: true
     }, {
       name: "ep3",
       value: "ENI I-SINT 10W40",
-      open: false
+      open: true
     }, {
       name: "ep4",
       value: "TANIX SUPER 1100",
-      open: false
+      open: true
     }, {
       name: "ep5",
       value: "TANIX SUPER 700",
-      open: false
+      open: true
     }, {
       name: "ep6",
       value: "TANIX SUPER 500",
-      open: false
-    }]
+      open: true
+    }];
+  public command = [];
 
   constructor(
     public navCtrl: NavController,
@@ -71,7 +72,7 @@ export class AboutPage implements OnInit {
     public toastCtrl: ToastController,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public pqservice:PoductsService,
+    public pqservice: PoductsService,
     private formBuilder: FormBuilder) {
   }
   ngOnInit() {
@@ -102,17 +103,42 @@ export class AboutPage implements OnInit {
   }
 
   nextStep() {
-    let formValid = false;
-    console.log(this.slideOneForm.value);
-    console.log(this.slideOneForm.valid);
-    if (this.slideOneForm.valid) {
-      this.pqservice.essenceQuantities= this.slideOneForm.value;
-      console.log(this.pqservice.essenceQuantities);
-      this.navCtrl.navigateRoot('/diesel');
-    }
+    this.pqservice.essenceQuantities = this.command;
+    console.log(this.pqservice.essenceQuantities);
+    this.navCtrl.navigateRoot('/diesel');
   }
+
   createformBuilder(index: number) {
     return "ep" + index.toString(2)
   }
+  toggle(index: number) {
+    //this.products[index].open = !this.products[index].open;
+  }
+  onInputChange(quantity: string, packaging: string, category: string): void {
+    let item = {
+      "category": category,
+      "packaging": packaging,
+      "quantity": quantity
+    };
+    if (this.command.length === 0) {
+      this.command.push(item);
+    } else {
+      let indexocc = -1;
+      this.command.map((cmd, index) => {
+        console.log(cmd);
+        if (item.category === cmd.category && item.packaging === cmd.packaging && item.quantity !== cmd.quantity) {
+          indexocc = index;
+          console.log('index inside=', indexocc);
+        }
+      });
+      console.log('index outside=', indexocc);
+      if (indexocc != -1) {
+        this.command[indexocc].quantity = item.quantity;
+      } else {
+        this.command.push(item);
+      }
+    }
+    console.log('this.command =', this.command);
 
+  }
 }

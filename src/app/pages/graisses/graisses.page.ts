@@ -58,7 +58,9 @@ export class GraissesPage implements OnInit {
     }, {
       name: "ep6",
       value: "TANIX SUPER 500"
-    }]
+    }];
+
+    public command = [];
 
   constructor(
     public navCtrl: NavController,
@@ -70,8 +72,8 @@ export class GraissesPage implements OnInit {
     private formBuilder: FormBuilder) {
   }
   ngOnInit() {
-    console.log('value from diesel page');
-    console.log(this.pqservice.essenceQuantities);
+    console.log('value from graisse page');
+    console.log(this.pqservice.hydrauliquesQuantities);
     this.slideOneForm = this.formBuilder.group({
       'ep1': [null, Validators.compose([
         Validators.required
@@ -99,17 +101,38 @@ export class GraissesPage implements OnInit {
   }
 
   nextStep() {
-    let formValid = false;
-    console.log(this.slideOneForm.value);
-    console.log(this.slideOneForm.valid);
-    if (this.slideOneForm.valid) {
-      this.pqservice.essenceQuantities= this.slideOneForm.value;
-      console.log(this.pqservice.essenceQuantities);
-      this.navCtrl.navigateRoot('/viewdata');
-    }
+    this.pqservice.graissesQuantities = this.command;
+    console.log(this.pqservice.graissesQuantities);
+    this.navCtrl.navigateRoot('/viewdata');
   }
   createformBuilder(index: number) {
     return "ep" + index.toString(2)
   }
+  onInputChange(quantity: string, packaging: string, category: string): void {
+    let item = {
+      "category": category,
+      "packaging": packaging,
+      "quantity": quantity
+    };
+    if (this.command.length === 0) {
+      this.command.push(item);
+    } else {
+      let indexocc = -1;
+      this.command.map((cmd, index) => {
+        console.log(cmd);
+        if (item.category === cmd.category && item.packaging === cmd.packaging && item.quantity !== cmd.quantity) {
+          indexocc = index;
+          console.log('index inside=', indexocc);
+        }
+      });
+      console.log('index outside=', indexocc);
+      if (indexocc != -1) {
+        this.command[indexocc].quantity = item.quantity;
+      } else {
+        this.command.push(item);
+      }
+    }
+    console.log('this.command =', this.command);
 
+  }
 }

@@ -4,13 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PoductsService {
-public essenceQuantities = {
- "ep1" : "" ,
- "ep2" : "" ,
- "ep3" : "" ,
- "ep4" : "" ,
- "ep5" : "" ,
- "ep6" : ""
-};
+public essenceQuantities = [];
+public caloporteursQuantities = [];
+public dieselQuantities = [];
+public graissesQuantities = [];
+public hmgazQuantities = [];
+public htransmissionQuantities = [];
+public httempsQuantities = [];
+public hydrauliquesQuantities = [];
+public marinsQuantities = [];
   constructor() { }
 }
