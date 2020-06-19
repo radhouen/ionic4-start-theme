@@ -24,7 +24,7 @@
               <ion-col   size="12">
               <ion-item *ngFor="let quant of quantities">
                 <ion-label position="floating">{{quant.value}}</ion-label>
-                <ion-input type="number"  (input)="onInputChange($event.target.value,quant.name,product.name)" value="0" placeholder="choose the quantity"></ion-input>
+                <ion-input type="number"  (input)="onInputChange($event.target.value,quant.name,product.value)" value="0" placeholder="choose the quantity"></ion-input>
               </ion-item>
               </ion-col>
             </ion-row>

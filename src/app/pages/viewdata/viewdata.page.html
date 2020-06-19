@@ -10,24 +10,36 @@
 <ion-content>
 
   <ion-card class="bg-white" no-margin>
-    <ion-card-content>
-      <h1 margin-bottom>
+    <ion-card-content *ngFor="let command of commands; let i=index">
+      <h3 margin-bottom>
         <ion-text color="primary">
-          <strong> Essence </strong>
+          <strong>
+            {{command.type}}
+          </strong>
         </ion-text>
-      </h1>
-
-      <p margin-bottom>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum odio placeat incidunt nesciunt atque ratione
-        quisquam, fugit omnis maxime adipisci excepturi dignissimos aliquam asperiores itaque unde sequi? Minus, quia,
-        dolore?
-      </p>
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum odio placeat incidunt nesciunt atque ratione
-        quisquam, fugit omnis maxime adipisci excepturi dignissimos aliquam asperiores itaque unde sequi? Minus, quia,
-        dolore?
-      </p>
+      </h3>
+      <div *ngIf="command.quantity.length > 0 ; else other_content">
+              <ion-grid *ngFor="let product of command.quantity; let j=index">
+                <ion-row >
+                  <ion-col class="col">
+                    <h5>
+                      {{product.category}}
+                    </h5>
+                  </ion-col>
+                  <ion-col class="col">
+                    <h5>
+                        {{product.packaging}}
+                    </h5>
+                  </ion-col>
+                  <ion-col class="col">
+                    <h5>
+                        {{product.quantity}}
+                    </h5>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+      </div>
+      <ng-template #no_content> No Data Found </ng-template>
     </ion-card-content>
   </ion-card>
 

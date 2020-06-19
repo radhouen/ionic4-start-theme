@@ -19,6 +19,8 @@ import { SearchFilterPageModule } from './pages/modal/search-filter/search-filte
 import { NotificationsComponent } from './components/notifications/notifications.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+//sqlite
+import { SQLite } from '@ionic-native/sqlite/ngx';
 @NgModule({
   declarations: [AppComponent, NotificationsComponent],
   imports: [
@@ -35,6 +37,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
   entryComponents: [NotificationsComponent],
   providers: [
     StatusBar,
+    SQLite,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
