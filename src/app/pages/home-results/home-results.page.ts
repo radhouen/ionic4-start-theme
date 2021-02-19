@@ -21,7 +21,12 @@ import { NotificationsComponent } from './../../components/notifications/notific
 export class HomeResultsPage {
   searchKey = '';
   yourLocation = '123 Test Street';
-  themeCover = 'assets/img/ionic4-Start-Theme-cover.jpg';
+  themeCover1 = 'assets/img/stock.png';
+  themeCover2 = 'assets/img/writer.jpg';
+  themeCover3 = 'assets/img/vente.jpg';
+  themeCover4 = 'assets/img/compte.jpeg';
+  themeCover5 = 'assets/img/coffre.jpg';
+  themeCover6 = 'assets/img/bank.jpeg';
 
   constructor(
     public navCtrl: NavController,

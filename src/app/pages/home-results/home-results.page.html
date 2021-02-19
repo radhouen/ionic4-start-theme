@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-title>
         <ion-text color="light">
-          <ion-text color="light" class="fw700">Passation de Commande</ion-text>
+          <ion-text color="light" class="fw700"> شركة الواحة  </ion-text>
         </ion-text>
     </ion-title>
     <ion-buttons slot="end">
@@ -16,7 +16,7 @@
     </ion-buttons>
   </ion-toolbar>
   <ion-toolbar color="dark">
-    <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
+    <ion-searchbar [(ngModel)]="searchKey" placeholder="البحث " ></ion-searchbar>
     <ion-buttons slot="end">
       <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
         <ion-icon name="options"></ion-icon>
@@ -26,7 +26,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-card no-margin class="no-radius">
+  <!--ion-card-- no-margin class="no-radius">
     <ion-item lines="none" color="medium">
       <ion-label>
         <h2 no-margin class="fw500 no-margin">
@@ -42,18 +42,66 @@
         <ion-icon name="locate"></ion-icon>
       </ion-button>
     </ion-item>
-  </ion-card>
+  </!--ion-card-->
+ <ion-row>
+        <ion-col size="6">
+                  <ion-card class="bg-white">
+                    <ion-img [src]="themeCover1"></ion-img>
+                    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+                      متابعة مخزون
+                    </ion-button>
+                  </ion-card>
+        </ion-col>
 
-  <ion-card class="bg-white">
-    <ion-img [src]="themeCover"></ion-img>
-    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
-      Modal 1: Modal Image
-    </ion-button>
-  </ion-card>
+        <ion-col size="6">
+                  <ion-card class="bg-white">
+                    <ion-img [src]="themeCover2"></ion-img>
+                    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+                      حركة صنف
+                  </ion-button>
+            </ion-card>
+        </ion-col>
 
-  <ion-button margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
+       <ion-col size="6">
+                  <ion-card class="bg-white">
+                    <ion-img [src]="themeCover3"></ion-img>
+                    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+                      حركة مبيعات
+                    </ion-button>
+                  </ion-card>
+        </ion-col>
+
+        <ion-col size="6">
+                  <ion-card class="bg-white">
+                    <ion-img [src]="themeCover4"></ion-img>
+                    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+                      أرصدة العملاء
+                  </ion-button>
+            </ion-card>
+        </ion-col>
+
+       <ion-col size="6">
+                  <ion-card class="bg-white">
+                    <ion-img [src]="themeCover5"></ion-img>
+                    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+                      حركة الخزينة
+                    </ion-button>
+                  </ion-card>
+        </ion-col>
+
+        <ion-col size="6">
+                  <ion-card class="bg-white">
+                    <ion-img [src]="themeCover6"></ion-img>
+                    <ion-button expand="full" color="dark" (click)="presentImage(themeCover)" no-margin>
+                     أرصدة المصارف
+                  </ion-button>
+            </ion-card>
+        </ion-col>
+ </ion-row>
+
+  <!--ion-button-- margin shape="round" expand="full" color="secondary" (click)="searchFilter()">
     Modal 2: Search Filter
-  </ion-button>
+  </-!ion-button-->
 
   <popmenu></popmenu>
 </ion-content>
