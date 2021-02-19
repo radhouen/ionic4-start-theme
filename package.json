@@ -33,6 +33,7 @@
     "core-js": "^2.5.4",
     "ionicons": "4.5.5",
     "rxjs": "~6.6.3",
+    "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
